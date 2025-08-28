@@ -1,0 +1,203 @@
+<!-- Copyright (c) 2025 Franz Steinkress
+     Licensed under the MIT License - see LICENSE for details -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Zeitgenössische Malerei</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img width="32" height="32" src="./resources/fs.ico" alt="Icon"/>
+        <h1>Zeitgenössische Malerei</h1>
+    </div>
+
+    <div class="outer-box">
+        <div class="overlay-box" id="overlayBox">
+            <div class="nav-arrows">
+                <button id="leftBtn" class="arrow left">←</button>
+                <button id="rightBtn" class="arrow right">→</button>
+            </div>
+            <!--<div class="text">
+                <div class="line1" id="title">Titel</div>
+                <div class="line2" id="description">Beschreibung</div>
+            </div>-->
+            <img src="./assets/Impressionism.jpg" alt="Screenshots des Designs">
+            <!--<button id="closeBtn">Bild 1 von 23</button>-->
+            <div class="caption">
+                <p style="margin:0" id="fulldescription">Description</p>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="safe-area-frame-1080x1080"></div>-->
+
+    <script>
+        const images = [
+            "Art-Informel.jpg",
+            "Gestural-Painting.jpg",
+            "Pop-Art.jpg",
+            "Op-Art.jpg",
+            "Fluxus.jpg",
+            "Land-Art.jpg",
+            "Performance-Art.jpg",
+            "Assemblage-Art.jpg",
+            "Hyperrealism.jpg",
+            "Environmental-Art.jpg",
+            "Outsider-Art.jpg",
+            "Appropriation-Art.jpg",
+            "Street-Photography-Art.jpg",
+            "Neo-expressionism.jpg",
+            "Transavantgarde.jpg",
+            "Site-specific-Art.jpg",
+            "Digital-Art.jpg",
+            "Net-Art.jpg",
+            "Relational-Aesthetics.jpg",
+            "New-Media-Art.jpg",
+        ];
+
+        const titles = [
+            "Art Informel (1945-1960er)",
+            "Gestural Painting (1945-1965)",
+            "Pop Art (1955-1970)",
+            "Op Art (1960-1970)",
+            "Fluxus (1962-1978)",
+            "Land Art (1968-1980)",
+            "Performance Art (1970-heute)",
+            "Assemblage Art (1970-heute)",
+            "Hyperrealism (1970-heute)",
+            "Environmental Art (1970-heute)",
+            "Outsider Art (1970-heute)",
+            "Appropriation Art (1970-heute)",
+            "Street Photography Art (1970-heute)",
+            "Neo-expressionism (1980-1990)",
+            "Transavantgarde (1980-1990)",
+            "Site-specific Art (1980-heute)",
+            "Digital Art (1990-heute)",
+            "Net Art (1994-heute)",
+            "Relational Aesthetics (1990-heute)",
+            "New Media Art (1990-heute)",
+        ];
+
+        const descriptions = [
+            "Ungeordnete, intuitive Abstraktion, Betonung der Materialität (Jean Dubuffet, Hans Hartung)",
+            "Dynamische, körperbetonte Pinselführung, Nähe zu Action Painting (Franz Kline, Georges Mathieu)",
+            "Alltagsmotive, Werbung, Comics, Konsumästhetik (Andy Warhol, Richard Hamilton)",
+            "Optische Täuschungen, geometrische Muster (Bridget Riley, Victor Vasarely)",
+            "Interdisziplinär, Performance, Musik, Happening, Ironie (Nam June Paik, Joseph Beuys)",
+            "Kunstwerke in/mit Landschaft, oft monumental (Robert Smithson, Richard Long)",
+            "Körper als Medium, live vor Publikum (Marina Abramović, Vito Acconci)",
+            "3D-Collagen aus Alltagsobjekten (Louise Nevelson, Daniel Spoerri)",
+            "Extrem detailgetreue Darstellung, mehr als Fotorealismus (Gottfried Helnwein, Roberto Bernardi)",
+            "Kunst mit/über Umwelt, Nachhaltigkeit (Agnes Denes, Olafur Eliasson)",
+            "Kunst von Autodidakten außerhalb des Kunstmarkts (Adolf Wölfli, Henry Darger)",
+            "Nutzung existierender Bilder in neuem Kontext (Sherrie Levine, Richard Prince)",
+            "Malerische Rezeption fotografischer Straßenmotive (Henri Cartier-Bresson, Vivian Maier)",
+            "Rückkehr zu expressiver Malerei, kräftige Farben, große Formate (Anselm Kiefer, Jean-Michel Basquiat)",
+            "Italienische postmoderne Rückkehr zur Figuration (Sandro Chia, Francesco Clemente)",
+            "Kunst für einen bestimmten Ort entworfen (Christo & Jeanne-Claude, Richard Serra)",
+            "Computergenerierte Bilder, 3D, VR (Rafaël Rozendaal, Manfred Mohr)",
+            "Kunst im Internet, interaktiv (Olia Lialina, Jodi.org)",
+            "Kunst als soziale Interaktion (Nicolas Bourriaud, Rirkrit Tiravanija)",
+            "Nutzung digitaler Technologien, KI, VR in der Kunst (Rafael Lozano-Hemmer)",
+        ];
+
+        const fulldescriptions = [
+            "Art Informel (1945-1960er) - Ungeordnete, intuitive Abstraktion, Betonung der Materialität (Jean Dubuffet, Hans Hartung)",
+            "Gestural Painting (1945-1965) - Dynamische, körperbetonte Pinselführung, Nähe zu Action Painting (Franz Kline, Georges Mathieu)",
+            "Pop Art (1955-1970) - Alltagsmotive, Werbung, Comics, Konsumästhetik (Andy Warhol, Richard Hamilton)",
+            "Op Art (1960-1970) - Optische Täuschungen, geometrische Muster (Bridget Riley, Victor Vasarely)",
+            "Fluxus (1962-1978) - Interdisziplinär, Performance, Musik, Happening, Ironie (Nam June Paik, Joseph Beuys)",
+            "Land Art (1968-1980) - Kunstwerke in/mit Landschaft, oft monumental (Robert Smithson, Richard Long)",
+            "Performance Art (1970-heute) - Körper als Medium, live vor Publikum (Marina Abramović, Vito Acconci)",
+            "Assemblage Art (1970-heute) - 3D-Collagen aus Alltagsobjekten (Louise Nevelson, Daniel Spoerri)",
+            "Hyperrealism (1970-heute) - Extrem detailgetreue Darstellung, mehr als Fotorealismus (Gottfried Helnwein, Roberto Bernardi)",
+            "Environmental Art (1970-heute) - Kunst mit/über Umwelt, Nachhaltigkeit (Agnes Denes, Olafur Eliasson)",
+            "Outsider Art (1970-heute) - Kunst von Autodidakten außerhalb des Kunstmarkts (Adolf Wölfli, Henry Darger)",
+            "Appropriation Art (1970-heute) - Nutzung existierender Bilder in neuem Kontext (Sherrie Levine, Richard Prince)",
+            "Street Photography Art (1970-heute) - Malerische Rezeption fotografischer Straßenmotive (Henri Cartier-Bresson, Vivian Maier)",
+            "Neo-expressionism (1980-1990) - Rückkehr zu expressiver Malerei, kräftige Farben, große Formate (Anselm Kiefer, Jean-Michel Basquiat)",
+            "Transavantgarde (1980-1990) - Italienische postmoderne Rückkehr zur Figuration (Sandro Chia, Francesco Clemente)",
+            "Site-specific Art (1980-heute) - Kunst für einen bestimmten Ort entworfen (Christo & Jeanne-Claude, Richard Serra)",
+            "Digital Art (1990-heute) - Computergenerierte Bilder, 3D, VR (Rafaël Rozendaal, Manfred Mohr)",
+            "Net Art (1994-heute) - Kunst im Internet, interaktiv (Olia Lialina, Jodi.org - Joan Heemskerk und Dirk Paesmans)",
+            "Relational Aesthetics (1990-heute) - Kunst als soziale Interaktion (Nicolas Bourriaud, Rirkrit Tiravanija)",
+            "New Media Art (1990-heute) - Nutzung digitaler Technologien, KI, VR in der Kunst (Rafael Lozano-Hemmer)",
+        ];
+
+        const dominantColors = [
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff",
+        ];
+
+        const fontColors = [
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333",
+        ];
+
+        let imageIndex = 0;
+        const img = document.querySelector(".overlay-box img");
+        const button = document.getElementById("closeBtn");
+        const titl = document.getElementById("title");
+        const desc = document.getElementById("description");
+        const fulldesc = document.getElementById("fulldescription");
+        const overlayBox = document.getElementById("overlayBox");
+        const lBtn = document.getElementById("leftBtn");
+        const rBtn = document.getElementById("rightBtn");
+
+        function updateView() {
+            img.src = `./assets/${images[imageIndex]}`;
+            //titl.innerText = titles[imageIndex] || "Kein Titel verfügbar";
+            //desc.innerText = descriptions[imageIndex] || "Keine Beschreibung verfügbar";
+            fulldesc.innerText = fulldescriptions[imageIndex] || "Keine Beschreibung verfügbar";
+            //button.innerText = `Bild ${imageIndex + 1} von ${images.length}`;
+            overlayBox.style.backgroundColor = dominantColors[imageIndex];
+            overlayBox.style.color = fontColors[imageIndex];
+            overlayBox.style.outline = dominantColors[imageIndex];
+            lBtn.style.backgroundColor =  dominantColors[imageIndex];
+            lBtn.style.color =  fontColors[imageIndex];
+            lBtn.style.outline = dominantColors[imageIndex];
+            rBtn.style.backgroundColor =  dominantColors[imageIndex];
+            rBtn.style.color =  fontColors[imageIndex];
+            rBtn.style.outline = dominantColors[imageIndex];
+        }
+
+        function nextImage() {
+            imageIndex = (imageIndex + 1) % images.length;
+            updateView();
+        }
+
+        function prevImage() {
+            imageIndex = (imageIndex - 1 + images.length) % images.length;
+            updateView();
+        }
+
+        document.getElementById("leftBtn").addEventListener("click", prevImage);
+        document.getElementById("rightBtn").addEventListener("click", nextImage);
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") prevImage();
+            if (e.key === "ArrowRight") nextImage();
+        });
+
+        let startX = 0;
+        document.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
+        document.addEventListener("touchend", (e) => {
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 50) {
+                dx > 0 ? prevImage() : nextImage();
+            }
+        });
+
+        updateView();
+    </script>
+</body>
+</html>

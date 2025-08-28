@@ -1,0 +1,45 @@
+# Python-spezifische Dateien
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Systemdateien
+.DS_Store
+Thumbs.db
+
+# VS Code-Einstellungen
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Virtuelle Umgebung
+.venv/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Log-Dateien
+*.log
+logs.txt
+
+# Puppeteer
+node_modules/
+package-lock.json
+package.json
+
+# Projekt-spezifische Dateien
+outputs/
+.lastpath
+doc/
+docs/
+*.txt
+1080x1080-screenshots/
+1080x1080-visuals/
+1080x1920-screenshots/
+1080x1920-visuals/
+generate-1080x1080-screenshots.js
+generate-1080x1920-screenshots.js

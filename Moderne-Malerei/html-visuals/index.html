@@ -1,0 +1,223 @@
+<!-- Copyright (c) 2025 Franz Steinkress
+     Licensed under the MIT License - see LICENSE for details -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Moderne Malerei</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img width="32" height="32" src="./resources/fs.ico" alt="Icon"/>
+        <h1>Moderne Malerei</h1>
+    </div>
+
+    <div class="outer-box">
+        <div class="overlay-box" id="overlayBox">
+            <div class="nav-arrows">
+                <button id="leftBtn" class="arrow left">←</button>
+                <button id="rightBtn" class="arrow right">→</button>
+            </div>
+            <!-- <div class="text">
+                <div class="line1" id="title">Titel</div>
+                <div class="line2" id="description">Beschreibung</div>
+            </div> -->
+            <img src="./assets/Impressionism.jpg" alt="Screenshots des Designs">
+            <!-- <button id="closeBtn">Bild 1 von 23</button> -->
+            <div class="caption">
+                <p style="margin:0" id="fulldescription">Description</p>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="safe-area-frame-1080x1080"></div>-->
+
+    <script>
+        const images = [
+            "Impressionism.jpg",
+            "Post-Impressionism.jpg",
+            "Neo-Impressionism.jpg",
+            "Pointillism.jpg",
+            "Symbolism.jpg",
+            "Art-Nouveau.jpg",
+            "German-Jugendstil.jpg",
+            "Vienna-Secession-Style.jpg",
+            "Italian-Stile-Liberty.jpg",
+            "Naïve-Art.jpg",
+            "Expressionism.jpg",
+            "Fauvism.jpg",
+            "The-Blue-Rider.jpg",
+            "Cubism.jpg",
+            "Futurism.jpg",
+            "Abstract-Art.jpg",
+            "Suprematism.jpg",
+            "Constructivism.jpg",
+            "De-Stijl.jpg",
+            "Dadaism.jpg",
+            "Surrealism.jpg",
+            "Bauhaus.jpg",
+            "Collage.jpg",
+            "Glass-Painting.jpg",
+            "Ink-Painting.jpg",
+        ];
+
+        const titles = [
+            "Impressionism (1860-1890)",
+            "Post-Impressionism (1885-1910)",
+            "Neo-Impressionism (1885-1910)",
+            "Pointillism/Divisionism (1885-1910)",
+            "Symbolism (1886-1915)",
+            "Art-Nouveau (1890-1910)",
+            "German-Jugendstil (ca. 1895-1910)",
+            "Vienna-Secession (ab 1897)",
+            "Italian-Stile-Liberty (ca. 1890-1915)",
+            "Naïve-Art (ab 1890)",
+            "Expressionism (1905-1930)",
+            "Fauvism (1905-1910)",
+            "The-Blue-Rider (1911-1914)",
+            "Cubism (1907-1915)",
+            "Futurism (1909-1918)",
+            "Abstract-Art (1910-1960)",
+            "Suprematism (1915-1930)",
+            "Constructivism (1915-1935)",
+            "De-Stijl (1917-1931)",
+            "Dadaism (1916-1924)",
+            "Surrealism (1924-1966)",
+            "Bauhaus (1919-1933)",
+            "Collage (ab 1910)",
+            "Glass-Painting (20. Jh. Wiederaufleben)",
+            "Ink-Painting (Modern ab 1950)",
+        ];
+
+        const descriptions = [
+            "Flüchtige Farbwahrnehmung, lockere Pinselführung (Claude Monet, Pierre-Auguste Renoir)",
+            "Subjektivere Ausdrucksformen, stärkere Struktur, Symbolik (Vincent van Gogh, Paul Cézanne)",
+            "Wissenschaftliche Farbtheorie, divisionistische Maltechnik (Georges Seurat, Paul Signac)",
+            "Farbtrennung durch Punkte/Striche, optische Mischung (Georges Seurat, Giovanni Segantini)",
+            "Traumhafte, mystische Themen, Betonung des Inneren (Gustave Moreau, Odilon Redon)",
+            "Fließende, geschwungene Linien, florale Ornamente (Hector Guimard, Alphonse Mucha)",
+            "Starke Betonung von Buch- und Grafikdesign, Plakatkunst. (Peter Behrens, Otto Eckmann)",
+            "Florale Formen, byzantinische Ornamentik, Symbolismus (Gustav Klimt, Koloman Moser)",
+            "Stark dekorativ, mit mediterranen Einflüssen (Galileo Chini, Ernesto Basile)",
+            "Kindlich-vereinfachte Formen, intuitive Malerei (Henri Rousseau)",
+            "Expressive Farben, emotionale Darstellung, Deformation (Ernst Ludwig Kirchner, Egon Schiele)",
+            "Leuchtende, ungemischte Farben, vereinfachte Formen (Henri Matisse, André Derain)",
+            "Spirituelle Abstraktion, expressive Farben, Symbolik (Wassily Kandinsky, Franz Marc)",
+            "Zerlegung von Formen in geometrische Strukturen (Pablo Picasso, Georges Braque)",
+            "Dynamik, Geschwindigkeit, Technikbegeisterung (Umberto Boccioni, Giacomo Balla)",
+            "Abkehr von Gegenständlichkeit, Formen und Farben autonom (Wassily Kandinsky, Piet Mondrian)",
+            "Geometrische Abstraktion, Reduktion auf Grundformen (Kasimir Malewitsch)",
+            "Politische, funktionale Kunst, geometrische Reduktion (El Lissitzky, Alexander Rodtschenko)",
+            "Strenge Geometrie, Primärfarben, horizontale / vertikale Linien (Piet Mondrian, Theo van Doesburg)",
+            "Antikunst, Collage, Provokation, Zufall (Marcel Duchamp, Hannah Höch)",
+            "Traumwelten, Unterbewusstes, Symbolik (Salvador Dalí, Max Ernst)",
+            "Verbindung von Kunst, Architektur, Design, Reduktion (Paul Klee, Wassily Kandinsky)",
+            "Zusammensetzung von Papier, Fotos, Objekten (Pablo Picasso, Kurt Schwitters)",
+            "Transparenz, Glasfarben, abstrakte Muster, geometrische Formen (August Macke)",
+            "Einsatz asiatischer Tuschetraditionen in moderner Kunst (Hans Hartung, Pierre Soulages)",
+        ];
+
+        const fulldescriptions = [
+            "Impressionism (1860-1890) - Flüchtige Farbwahrnehmung, lockere Pinselführung (Claude Monet, Pierre-Auguste Renoir)",
+            "Post-Impressionism (1885-1910) - Subjektivere Ausdrucksformen, stärkere Struktur, Symbolik (Vincent van Gogh, Paul Cézanne)",
+            "Neo-Impressionism (1885-1910) - Wissenschaftliche Farbtheorie, divisionistische Maltechnik (Georges Seurat, Paul Signac)",
+            "Pointillism/Divisionism (1885-1910) - Farbtrennung durch Punkte/Striche, optische Mischung (Georges Seurat, Giovanni Segantini)",
+            "Symbolism (1886-1915) - Traumhafte, mystische Themen, Betonung des Inneren (Gustave Moreau, Odilon Redon)",
+            "Art-Nouveau (ca. 1890-1910) - Fließende, geschwungene Linien, florale Ornamente (Hector Guimard, Émile Gallé, Alphonse Mucha)",
+            "German-Jugendstil (ca. 1895-1910) - Starke Betonung von Buch- und Grafikdesign, Plakatkunst. (Peter Behrens, Otto Eckmann)",
+            "Vienna-Secession (ab 1897) - Florale Formen, byzantinische Ornamentik, Symbolismus (Gustav Klimt, Koloman Moser)",
+            "Italian-Stile-Liberty (ca. 1890-1915) - Stark dekorativ, mit mediterranen Einflüssen (Galileo Chini, Ernesto Basile)",
+            "Naïve-Art (ab 1890) - Kindlich-vereinfachte Formen, intuitive Malerei (Henri Rousseau)",
+            "Expressionism (1905-1930) - Expressive Farben, emotionale Darstellung, Deformation (Ernst Ludwig Kirchner, Egon Schiele)",
+            "Fauvism (1905-1910) - Leuchtende, ungemischte Farben, vereinfachte Formen (Henri Matisse, André Derain)",
+            "The-Blue-Rider (1911-1914) - Spirituelle Abstraktion, expressive Farben, Symbolik (Wassily Kandinsky, Franz Marc)",
+            "Cubism (1907-1915) - Zerlegung von Formen in geometrische Strukturen (Pablo Picasso, Georges Braque)",
+            "Futurism (1909-1918) - Dynamik, Geschwindigkeit, Technikbegeisterung (Umberto Boccioni, Giacomo Balla)",
+            "Abstract-Art (1910-1960) - Abkehr von Gegenständlichkeit, Formen und Farben autonom (Wassily Kandinsky, Piet Mondrian)",
+            "Suprematism (1915-1930) - Geometrische Abstraktion, Reduktion auf Grundformen (Kasimir Malewitsch)",
+            "Constructivism (1915-1935) - Politische, funktionale Kunst, geometrische Reduktion (El Lissitzky, Alexander Rodtschenko)",
+            "De Stijl (1917-1931) - Strenge Geometrie, Primärfarben, horizontale / vertikale Linien (Piet Mondrian, Theo van Doesburg)",
+            "Dadaism (1916-1924) - Antikunst, Collage, Provokation, Zufall (Marcel Duchamp, Hannah Höch)",
+            "Surrealism (1924-1966) - Traumwelten, Unterbewusstes, Symbolik (Salvador Dalí, Max Ernst)",
+            "Bauhaus (1919-1933) - Verbindung von Kunst, Architektur, Design, Reduktion (Paul Klee, Wassily Kandinsky)",
+            "Collage (ab 1910) - Zusammensetzung von Papier, Fotos, Objekten (Pablo Picasso, Kurt Schwitters)",
+            "Glass-Painting (20. Jh. Wiederaufleben) - Transparenz, Glasfarben, abstrakte Muster, geometrische Formen (August Macke)",
+            "Ink-Painting (Modern ab 1950) Einsatz asiatischer Tuschetraditionen in moderner Kunst (Hans Hartung, Pierre Soulages)",
+        ];
+
+        const dominantColors = [
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff", 
+            "#fff", "#fff", "#fff", "#fff", "#fff",
+        ];
+
+        const fontColors = [
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333", 
+            "#333", "#333", "#333", "#333", "#333",
+        ];
+
+        let imageIndex = 0;
+        const img = document.querySelector(".overlay-box img");
+        const button = document.getElementById("closeBtn");
+        const titl = document.getElementById("title");
+        const desc = document.getElementById("description");
+        const fulldesc = document.getElementById("fulldescription");
+        const overlayBox = document.getElementById("overlayBox");
+        const lBtn = document.getElementById("leftBtn");
+        const rBtn = document.getElementById("rightBtn");
+
+        function updateView() {
+            img.src = `./assets/${images[imageIndex]}`;
+            //titl.innerText = titles[imageIndex] || "Kein Titel verfügbar";
+            //desc.innerText = descriptions[imageIndex] || "Keine Beschreibung verfügbar";
+            fulldesc.innerText = fulldescriptions[imageIndex] || "Keine Beschreibung verfügbar";
+            //button.innerText = `Bild ${imageIndex + 1} von ${images.length}`;
+            overlayBox.style.backgroundColor = dominantColors[imageIndex];
+            overlayBox.style.color = fontColors[imageIndex];
+            overlayBox.style.outline = dominantColors[imageIndex];
+            lBtn.style.backgroundColor =  dominantColors[imageIndex];
+            lBtn.style.color =  fontColors[imageIndex];
+            lBtn.style.outline = dominantColors[imageIndex];
+            rBtn.style.backgroundColor =  dominantColors[imageIndex];
+            rBtn.style.color =  fontColors[imageIndex];
+            rBtn.style.outline = dominantColors[imageIndex];
+        }
+
+        function nextImage() {
+            imageIndex = (imageIndex + 1) % images.length;
+            updateView();
+        }
+
+        function prevImage() {
+            imageIndex = (imageIndex - 1 + images.length) % images.length;
+            updateView();
+        }
+
+        document.getElementById("leftBtn").addEventListener("click", prevImage);
+        document.getElementById("rightBtn").addEventListener("click", nextImage);
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") prevImage();
+            if (e.key === "ArrowRight") nextImage();
+        });
+
+        let startX = 0;
+        document.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
+        document.addEventListener("touchend", (e) => {
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 50) {
+                dx > 0 ? prevImage() : nextImage();
+            }
+        });
+
+        updateView();
+    </script>
+</body>
+</html>
