@@ -60,7 +60,7 @@ cd Malereistile
 - Outsider-Art
 - Appropriation-Art
 - Street-Photography-Art
-- Neo-expressionism
+- Neo-Expressionism
 - Transavantgarde
 - Site-specific-Art
 - Digital-Art
