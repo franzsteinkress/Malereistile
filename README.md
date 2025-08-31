@@ -1,5 +1,8 @@
 # Malereistile
 
+![ChatGPT 4o](https://img.shields.io/badge/ChatGPT-4o-74AA9C?logo=openai&logoColor=white) ![DALL·E 3](https://img.shields.io/badge/DALL·E-3-74AA9C?logo=openai&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-5-E34F26?logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=white) ![JPG](https://img.shields.io/badge/Image-JPG-FFFFFF?logo=png&logoColor=black) ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?logo=visualstudiocode&logoColor=white) ![License](https://img.shields.io/badge/License-MIT-green)
+
+
 Das Repository **Malereistile** präsentiert zwei Sammlungen von Kunststilen: **Moderne Malerei** und **Zeitgenössische Malerei**. Jede Sammlung kann über einen eigenen **HTML-Viewer** durchgeklickt werden, erstellt mit HTML, CSS und JavaScript. Die Bilder wurden mit Prompts von **ChatGPT 4o** oder **DALL-E** generiert. Das Projekt steht unter der [MIT-Lizenz](LICENSE).
 
 ## Inhalt
