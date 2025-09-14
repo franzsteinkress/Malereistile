@@ -6,17 +6,22 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: "Segoe UI", sans-serif;
-    background: #2D74B2;
     background: #C0C0C0;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
+    overscroll-behavior-x: none; /* verhindert Bounce-Effekt */
 }
 
 .container {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 50%;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    max-width: 90%;
+    width: 300px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -38,6 +43,18 @@ html, body {
     margin: 0;
     font-size: 1.5rem;
     color: white;
+}
+
+@media (max-width: 767px) {
+    .container {
+        top: 0;
+        width: 170px;
+        max-width: 90%;
+        border-radius: 0;     /* auf Mobile randlos */
+    }
+    .container h1 {
+        font-size: 0.875rem;
+  }
 }
 
 .outer-box {
@@ -64,6 +81,7 @@ html, body {
     position: relative;
     color: white;
     text-align: center;
+    z-index: 1;
 }
 
 .overlay-box img {
@@ -74,12 +92,10 @@ html, body {
 }
 
 .caption {
-    width: 100%;
     width: 860px;
     background: #fff;
     color: #333;
     padding: 16px 20px;
-    border-top: 3px solid #000;
     border-top: 2px solid #C0C0C0;
     display: flex;
     align-items: center;
@@ -101,6 +117,38 @@ html, body {
     pointer-events: none;
     box-sizing: border-box;
     z-index: 9999;  /* Sicher ganz oben */
+}
+
+/* --- Mobile Anpassungen für Overlay --- */
+@media (max-width: 767px) {
+    .outer-box {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .overlay-box {
+        width: 100vw;
+        height: auto;
+        max-height: 85vh;
+        margin-top: 20px; /* Abstand unter dem Header */
+        overflow-y: auto;   /* vertikal scrollen möglich */
+        overflow-x: hidden; /* horizontal blockiert */
+    }
+
+    .overlay-box img {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .caption {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 12px;
+    }
+
+    .safe-area-frame-1080x1080 {
+        display: none; /* Debug-Frame nicht auf Mobile */
+    }
 }
 
 .nav-arrows {
@@ -132,7 +180,7 @@ html, body {
     align-items: center;
     justify-content: center;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, background 0.3s ease;
     outline: 1px solid lime;
 }
@@ -140,4 +188,18 @@ html, body {
 .arrow.left  { left: -3.0rem;  margin-left: -3.5rem; top: 50%; transform: translateY(-50%) scale(1); }
 .arrow.right { right: -3.0rem; margin-right: -3.5rem; top: 50%; transform: translateY(-50%) scale(1); }
 .arrow:hover { transform: translateY(-50%) scale(1.2); }
+
+/* Mobile: Buttons unsichtbar */
+#leftBtn,
+#rightBtn {
+    display: none;
+}
+
+/* Desktop: Buttons sichtbar */
+@media (min-width: 768px) {
+    #leftBtn,
+    #rightBtn {
+        display: flex; /* weil du oben flex brauchst */
+    }
+}
 
