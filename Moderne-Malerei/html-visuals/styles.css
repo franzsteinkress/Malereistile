@@ -47,7 +47,7 @@ html, body {
 
 @media (max-width: 767px) {
     .container {
-        top: 0;
+        top: 70px;
         width: 170px;
         max-width: 90%;
         border-radius: 0;     /* auf Mobile randlos */
