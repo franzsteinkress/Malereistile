@@ -1,7 +1,56 @@
-# Malereistile
+# Malereistile – AI generierte Malerei in historischen und zeitgenössischen Kunststilen
 
-![ChatGPT 4o](https://img.shields.io/badge/ChatGPT-4o-74AA9C?logo=openai&logoColor=white) ![DALL·E 3](https://img.shields.io/badge/DALL·E-3-74AA9C?logo=openai&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-5-E34F26?logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=white) ![JPG](https://img.shields.io/badge/Image-JPG-FFFFFF?logo=png&logoColor=black) ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?logo=visualstudiocode&logoColor=white) ![License](https://img.shields.io/badge/License-MIT-green)
+![ChatGPT 4o](https://img.shields.io/badge/ChatGPT-4o-74AA9C?logo=openai&logoColor=white) ![DALL·E 3](https://img.shields.io/badge/DALL·E-3-74AA9C?logo=openai&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-5-E34F26?logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black) ![JPG](https://img.shields.io/badge/Image-JPG-FFFFFF?logo=png&logoColor=black) ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?logo=visualstudiocode&logoColor=white) ![License](https://img.shields.io/badge/License-MIT-green)
 
+> **Malereistile** ist eine kuratierte Sammlung von **AI generierter Malerei** in verschiedenen Kunststilen – von der **europäischen Moderne** bis zur **zeitgenössischen Kunst**.  
+> Alle Werke wurden mit **ChatGPT 4o** und **DALL·E 3** erstellt und in einem interaktiven HTML-Viewer präsentiert.
+
+## Live-Demos
+
+- **[Moderne Malerei – neu erschaffen aus Prompts](https://franzsteinkress.github.io/Malereistile/Moderne-Malerei/html-visuals/index.html)**  
+  *25 historische Kunststile der Moderne, von Impressionismus bis Bauhaus – digital neu interpretiert mit KI.*
+
+- **[Zeitgenössische Malerei – neu erschaffen aus Prompts](https://franzsteinkress.github.io/Malereistile/Zeitgenoessische-Malerei/html-visuals/index.html)**  
+  *20 aktuelle Kunststile, von Pop Art bis New Media Art – kreativ neu erschaffen durch generative AI.*
+
+## Überblick
+
+Dieses Projekt kombiniert **Prompt Engineering Art** mit **digitaler Malerei**.  
+Ziel ist es, traditionelle und zeitgenössische Kunststile **visuell zugänglich** zu machen und durch AI-Technologie neu zu interpretieren.
+
+- **KI Kunststile** aus verschiedenen Epochen
+- **HTML, CSS und JavaScript**-Viewer für jede Sammlung
+- **AI Art Gallery** mit hoher Bildqualität (1024×1024 JPG)
+- Generative Art, die sich für **digitale und physische Medien** eignet
+
+## Serien im Detail
+
+### 1️⃣ Moderne Malerei – neu erschaffen aus Prompts
+> *Primäres Keyword*: **AI generierte Malerei**  
+> *Sekundäre Keywords*: KI Kunststile, Digitale Malerei AI, Prompt Engineering Art, Generative Art, AI Art Gallery
+
+Enthält **25 Stile** der europäischen Moderne, u.a.:
+
+- Impressionism, Post-Impressionism, Cubism, Bauhaus
+- Art Nouveau, Jugendstil, Vienna Secession
+- Abstract Art, Futurism, Surrealism
+
+🔗 **[Jetzt ansehen → Moderne Malerei Demo](https://franzsteinkress.github.io/Malereistile/Moderne-Malerei/html-visuals/index.html)**
+
+### 2️⃣ Zeitgenössische Malerei – neu erschaffen aus Prompts
+> *Primäres Keyword*: **Zeitgenössische AI Kunst**  
+> *Sekundäre Keywords*: AI Art Styles, Moderne Kunst KI, Contemporary AI Painting, Digital Art AI, Prompt Engineering Kunst
+
+Enthält **20 moderne Stile**, u.a.:
+
+- Pop Art, Op Art, Land Art
+- Digital Art, Net Art, New Media Art
+- Hyperrealism, Performance Art
+
+🔗 **[Jetzt ansehen → Zeitgenössische Malerei Demo](https://franzsteinkress.github.io/Malereistile/Zeitgenoessische-Malerei/html-visuals/index.html)**
+
+
+## Malereistile
 
 Das Repository **Malereistile** präsentiert Sammlungen von Kunststilen zur Ideenfindung. Die Zusammenarbeit mit KI erweitert den kreativen Horizont und eröffnet völlig neue Stilwelten. Dieses Repository enthält bisher **Moderne Malerei** und **Zeitgenössische Malerei** aus Europa. Jede Sammlung kann mit einen **HTML-Viewer** aus HTML, CSS und JavaScript betrachtet werden. Die Bilder werden mit Prompts von **ChatGPT 4o** oder **DALL-E** generiert.
 
@@ -12,6 +61,21 @@ Das Repository **Malereistile** präsentiert Sammlungen von Kunststilen zur Idee
 - **Zeitgenössische Malerei**: 20 Kunststile, neu erschaffen mit Prompts, in einem separaten HTML-Viewer.
 - **HTML-Viewer**: Interaktive Viewer für jede Sammlung, umgesetzt mit HTML, CSS und JavaScript.
 
+## Projektstruktur
+
+```plaintext
+Malereistile/
+│
+├── Moderne-Malerei/
+│   └── html-visuals/          # Interaktiver Viewer mit HTML/CSS/JS
+│
+├── Zeitgenoessische-Malerei/
+│   └── html-visuals/          # Interaktiver Viewer mit HTML/CSS/JS
+│
+├── LICENSE
+└── README.md
+```
+
 ## Installation
 
 **Repository klonen**:
@@ -19,6 +83,14 @@ Das Repository **Malereistile** präsentiert Sammlungen von Kunststilen zur Idee
 git clone https://github.com/franzsteinkress/Malereistile.git
 cd ./Malereistile
 ```
+Anschließend im Browser index.html der gewünschten Serie öffnen.
+
+### Technologie & Methoden
+
+- ChatGPT 4o & DALL·E 3 für Prompt-basiertes Bild-Rendering
+- HTML5, CSS3, JavaScript für den interaktiven Viewer
+- 1024×1024 JPG-Export für maximale Qualität
+- Prompt Engineering für stilgenaue Ergebnisse
 
 ## Bildgenerierung - Prompts für ChatGPT 4o
 
@@ -150,3 +222,11 @@ Zeitgenössische Malerei ist oft exklusiv und teuer. Digital generierte Kunstwer
 ## Lizenz
 
 Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).
+
+### Unterstütze das Projekt
+
+Wenn dir dieses Projekt gefällt oder du es nützlich findest:
+
+- Gib dem Repository einen ⭐ Star auf GitHub
+- Teile den Link mit anderen Künstler:innen, Entwickler:innen und AI-Interessierten
+
